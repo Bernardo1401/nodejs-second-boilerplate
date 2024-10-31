@@ -6,7 +6,7 @@ class User {
         this.password = password;
     }
     generateID() {
-        return mathfloor(Math.random() * 999) + 1;
+        return Math.floor(Math.random() * 999) + 1;
     }
 }
 
