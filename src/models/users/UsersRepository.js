@@ -12,8 +12,12 @@ class UsersRepository {
         this.users.push(newUser);
         return newUser;
     }
-    getById(id) {
-        return this.users.find(user => user.id === id);
+    getUserById(id) {
+        const user = this.users.find((u) => u.id == id);
+        if (!user) {
+            return null;
+        } 
+            return user;
     }
     update(user) {
         const index = this.users.findIndex(u => u.id === user.id);
