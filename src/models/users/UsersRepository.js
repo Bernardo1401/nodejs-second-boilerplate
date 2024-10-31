@@ -19,15 +19,16 @@ class UsersRepository {
         } 
             return user;
     }
-    update(user) {
-        const index = this.users.findIndex(u => u.id === user.id);
-        this.users[index] = user;
+    updateUser(id, name, email, password) {        
+        const user = this.getUserById(id);
+        if (!user) {
+            return null;
+        }
+        user.name = name;
+        user.email = email;
+        user.password = password;
+        return user;
     }
-    delete(id) {
-        const index = this.users.findIndex(u => u.id === id);
-        this.users.splice(index, 1); 
-        return true;
-    }    
 }
 
 export default UsersRepository;
